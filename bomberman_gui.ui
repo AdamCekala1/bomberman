@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>994</width>
+    <height>905</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+ background-color:#2980b9;
+}
+QFrame{
+background-color:#ecf0f1;
+}
+QLabel{
+ background-color:#2980b9;
+}
+QPushButton{
+	background:white;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>20</y>
+      <width>840</width>
+      <height>840</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="enemy">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>630</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="bomber-ikony/icons.qrc">
+       <normaloff>:/enemy.png</normaloff>:/enemy.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>21</width>
+       <height>21</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="user">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="bomber-ikony/icons.qrc">
+       <normaloff>:/user.png</normaloff>:/user.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>21</width>
+       <height>21</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="wall_type1">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>330</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="bomber-ikony/icons.qrc">
+       <normaloff>:/wall1.png</normaloff>:/wall1.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>21</width>
+       <height>21</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="wall_type2">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>280</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="bomber-ikony/icons.qrc">
+       <normaloff>:/wall2.png</normaloff>:/wall2.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>21</width>
+       <height>21</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="bot">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>100</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="bomber-ikony/icons.qrc">
+       <normaloff>:/soldier.png</normaloff>:/soldier.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>21</width>
+       <height>21</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="bot2">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>100</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="bomber-ikony/icons.qrc">
+       <normaloff>:/thief.png</normaloff>:/thief.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>21</width>
+       <height>21</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="bomber-ikony/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

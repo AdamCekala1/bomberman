@@ -1,0 +1,5 @@
+py -m PyQt5.uic.pyuic C:\Users\Adam\Desktop\Bombermanuntitled.ui-o C:\Users\Adam\Desktop\Bombermanuntitled.py -x
+
+icons "ImportError: No module named 'icons_rc'"
+
+C:\Python34\Lib\site-packages\PyQt5\pyrcc5  C:\Users\Adam\Desktop\Bomberman\bomber-ikony\icons.qrc -o  C:\Users\Adam\Desktop\Bomberman\icon_rc.py

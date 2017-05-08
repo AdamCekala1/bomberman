@@ -1,0 +1,10 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+   	 <file>user.png</file>
+    	<file>enemy.png</file>
+   	 <file>wall1.png</file>
+   	 <file>wall2.png</file>
+	<file>soldier.png</file>
+	<file>thief.png</file>
+</qresource>
+</RCC>
