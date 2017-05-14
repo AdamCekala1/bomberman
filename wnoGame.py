@@ -60,6 +60,8 @@ class Monster(object):
             self.char = 'N'
         else:
             self.char = 'M'
+    def position(self):
+        return  self.x,self.y
 
 class Bomb(object):
     def __init__(self,x,y,type):

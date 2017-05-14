@@ -17,7 +17,7 @@ import threading
 import jsonpickle
 import json
 import io
-
+import xml.etree.cElementTree as ET
 import threading
 import wnoGame
 from PyQt5.QtCore import Qt, QBasicTimer
@@ -172,35 +172,55 @@ class Example(QWidget):
     def recieve(self, socket):
         while True:
             resp = self.clientsocket.recv(80000).decode('utf-8')
-            map = jsonpickle.decode(resp)
-            self.prevMap = self.game
-            self.game = map
-            for i in range(0,dimension,1):
-                for j in range(0,dimension,1):
-                    if(self.game[i][j]!= self.prevMap[i][j]):
-                        if(self.prevMap[i][j]=="0"):
-                            objectO = self.findChild(QWidget, "wall_type1_" + str(i) + "_" + str(j))
-                            objectO.close()
-                        if (self.prevMap[i][j] == "M" or self.prevMap[i][j] == "N"):
-                            for Monster in Monsters:
-                                if Monster.x == j:
-                                    print("i found it!")
-                                    objectOMonster = self.findChild(QWidget, "Monster" + str(Monster.number))
-                                    print("Monster" + str(Monster.number))
-                                    objectOMonster.close()
-                            # objectO = self.findChild(QWidget, "wall_type1_" + str(i) + "_" + str(j))
-                        if (self.game[i][j] == "!"):
-                            self.bomb.setGeometry(QtCore.QRect(j * 21, i * 21, 21, 21))
-                        if (self.prevMap[i][j] == "!" and self.game[i][j] == "."):
-                            print("znikam")
-                            self.bomb.setGeometry(QtCore.QRect(-j * 21, -i * 21, 21, 21))
+            try:
+                map = jsonpickle.decode(resp)
+                results = ET.Element("results")
+                for s in map:
+                    for a in range(len(s)):
+                        result = ET.SubElement(results, "BombermanGame")
+                        student = ET.SubElement(result, "Row")
+                        score = ET.SubElement(student, "Char")
+
+                        # student.text = str(s)
+                        score.text = str(s[a])
+                tree = ET.ElementTree(results)
+                tree.write('xmlGame.xml')
+
+
+                self.prevMap = self.game
+                self.game = map
+            except:
+                print("error")
+
+
+            # for i in range(0,dimension,1):
+            #     for j in range(0,dimension,1):
+            #         if(self.game[i][j]!= self.prevMap[i][j]):
+            #             if(self.prevMap[i][j]=="0"):
+            #                 objectO = self.findChild(QWidget, "wall_type1_" + str(i) + "_" + str(j))
+            #                 objectO.close()
+            #             # if (self.prevMap[i][j] == "M" or self.prevMap[i][j] == "N"):
+            #             #     for Monster in Monsters:
+            #             #         if Monster.x == j:
+            #             #             print("i found it!")
+            #             #             objectOMonster = self.findChild(QWidget, "Monster" + str(Monster.number))
+            #             #             print("Monster" + str(Monster.number))
+            #             #             objectOMonster.close()
+            #             #     # objectO = self.findChild(QWidget, "wall_type1_" + str(i) + "_" + str(j))
+            #             if (self.game[i][j] == "!"):
+            #                 self.bomb.setGeometry(QtCore.QRect(j * 21, i * 21, 21, 21))
+            #             if (self.prevMap[i][j] == "!" and self.game[i][j] == "."):
+            #                 print("znikam")
+            #                 self.bomb.setGeometry(QtCore.QRect(-j * 21, -i * 21, 21, 21))
 
 
             # print_board(self.game)
             print("otrzymalem")
+            print_board(self.game)
             # self.send(self.game)
             with io.open('data.json', 'w', encoding='utf-8') as f:
                 f.write(json.dumps(self.game, ensure_ascii=False))
+
             self.repaint()
 
     def send(self, map):
@@ -215,7 +235,7 @@ class Example(QWidget):
         # bind the socket to a public host,
         # and a well-known port
         serversocket.bind((socket.gethostname(), 8070))
-        print(socket.gethostname())
+        # print(socket.gethostname())
         # become a server socket
         serversocket.listen(5)
         #while True:
